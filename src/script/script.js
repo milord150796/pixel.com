@@ -69,5 +69,48 @@ let pageSlider= new Swiper('.page',{
         dragClass:"page__drag-scroll",
         //Возможность перескакивать скролл
         draggable:true,
+    },
+
+    //Отключаємо автоматізацию
+    init:false,
+
+    //Собитія
+    on:{
+        //Собитія ініцалізациї
+        init:function(){
+            menuSlider();
+        },
+        //Собитія смені слайдеров
+        slideChange:function(){
+            menuSliderRemove();
+            menuLinks[pageSlider.realIndex].classList.add("_active")
+        },
+    },
+});
+
+//header
+let menuLinks = document.querySelectorAll(".menu__link");
+
+function menuSlider(){
+    if(menuLinks.length>0){
+        menuLinks[pageSlider.realIndex].classList.add("_active");
+        for(let index =0; index<menuLinks.length;index++){
+            const menuLink=menuLinks[index];
+            menuLink.addEventListener("click",function(e){
+                menuSliderRemove();
+                pageSlider.slideTo(index,800);
+                menuLinks.classList.add("_active");
+                e.preventDefault();
+            })
+        }
     }
-})
+}
+
+function menuSliderRemove(){
+    let menuLinkActive=document.querySelector(".menu__link._active");
+    if(menuLinkActive){
+        menuLinkActive.classList.remove("_active")
+    }
+}
+
+pageSlider.init();

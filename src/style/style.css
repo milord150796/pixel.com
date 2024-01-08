@@ -17,6 +17,33 @@ body{
 .wrapper{
     min-height: 100%;
 }
+/*------header-----*/
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    padding: 0px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.header menu{
+
+}
+.menu{
+    display: flex;
+    min-height: 50px;
+    align-items: center;
+}
+.menu__link{
+    color: #FFF;
+    font-size: 20px;
+    transition: color 0.3s ease 0s;
+    margin: 0 20px 0 0px;
+}
+.menu__link._active{
+    color: red;
+}
 .page{
     position: fixed;
     width: 100%;
