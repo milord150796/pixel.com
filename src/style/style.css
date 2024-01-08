@@ -16,6 +16,22 @@ body{
 }
 .wrapper{
     min-height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease 0s;
+}
+.wrapper._loaded{
+    opacity: 1;
+}
+.wrapper._loaded .header{
+    transition: transform 0.8s ease 0s;
+    transform: translate(0px,0px);
+}
+.wrapper._loaded .page__pagination{
+    transform: translate(0px,-50%);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.8s ease 0s;
+    
 }
 /*------header-----*/
 .header{
@@ -64,7 +80,9 @@ body{
     position: absolute;
     top: 50%;
     right: 50px;
-    transform: translate(0px,-50%);
+    transform: translate(50px,-50%);
+    opacity: 0;
+    visibility: hidden;
     display: flex;
     flex-direction: column;
 }
