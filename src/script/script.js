@@ -92,14 +92,14 @@ let pageSlider= new Swiper('.page',{
 let menuLinks = document.querySelectorAll(".menu__link");
 
 function menuSlider(){
-    if(menuLinks.length>0){
-        menuLinks[pageSlider.realIndex].classList.add("_active");
-        for(let index =0; index<menuLinks.length;index++){
+    if(menuLinks.length > 0){
+        menuLinks[pageSlider.realIndex].classList.add('_active');
+        for(let index = 0; index < menuLinks.length;index++){
             const menuLink=menuLinks[index];
-            menuLink.addEventListener("click",function(e){
+            menuLink.addEventListener("click",function (e) {
                 menuSliderRemove();
                 pageSlider.slideTo(index,800);
-                menuLinks.classList.add("_active");
+                menuLink.classList.add("_active");
                 e.preventDefault();
             })
         }
